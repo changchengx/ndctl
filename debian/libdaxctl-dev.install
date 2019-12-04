@@ -1,0 +1,3 @@
+usr/include/daxctl/*
+usr/lib/*/libdaxctl*so
+usr/lib/*/pkgconfig/libdaxctl.pc
