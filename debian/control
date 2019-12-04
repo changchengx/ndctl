@@ -1,0 +1,86 @@
+Source: ndctl
+Section: libs
+Priority: optional
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Build-Depends: asciidoc,
+               debhelper (>=11),
+               libjson-c-dev,
+               libkmod-dev,
+               libudev-dev,
+               pkg-config,
+               uuid-dev,
+               xmlto
+Standards-Version: 4.1.4
+Homepage: https://github.com/pmem/ndctl
+Vcs-Git: https://git.launchpad.net/ubuntu/+source/ndctl
+Vcs-Browser: https://code.launchpad.net/ubuntu/+source/ndctl/+git
+
+Package: ndctl
+Section: misc
+Architecture: amd64
+Depends: ${misc:Depends},
+         ${shlibs:Depends}
+Description: Utility for managing the nvdimm subsystem
+ The nvdimm subsystem defines a kernel device model and control message
+ interface for platform NVDIMM resources like those defined by the ACPI 6+ NFIT
+ (NVDIMM Firmware Interface Table).
+ .
+ This package contains an Utility for managing the nvdimm (non-volatile memory
+ device) subsystem in the Linux kernel.
+
+Package: libndctl6
+Architecture: amd64
+Depends: ${misc:Depends},
+         ${shlibs:Depends}
+Description: Utility library for managing the libnvdimm subsystem
+ The nvdimm subsystem defines a kernel device model and control message
+ interface for platform NVDIMM resources like those defined by the ACPI 6+ NFIT
+ (NVDIMM Firmware Interface Table).
+ .
+ This package contains an utility library for managing the libnvdimm
+ (non-volatile memory device) sub-system in the Linux kernel.
+
+Package: libndctl-dev
+Section: libdevel
+Architecture: amd64
+Depends: libndctl6 (=${binary:Version}),
+         ${misc:Depends}
+Description: Development files for libndctl
+ Header files and development library for compiling C programs to link
+ with the libndctl library and manage the libnvdimm sub-system in the
+ Linux kernel.
+
+Package: daxctl
+Section: misc
+Architecture: amd64
+Depends: ${misc:Depends},
+         ${shlibs:Depends}
+Description: Utility for managing the device DAX subsystem
+ "DAX" are file system extensions to bypass the page cache and block layer to
+ mmap persistent memory, from a PMEM block device, directly into a process
+ address space.
+ .
+ This package contains an utility for managing the device DAX subsystem in the
+ Linux kernel.
+
+Package: libdaxctl1
+Architecture: amd64
+Depends: ${misc:Depends},
+         ${shlibs:Depends}
+Description: Utility library for managing the device DAX subsystem
+ "DAX" are file system extensions to bypass the page cache and block layer to
+ mmap persistent memory, from a PMEM block device, directly into a process
+ address space.
+ .
+ This package contains an utility library used by applications to manage the
+ device DAX subsystem in the Linux kernel.
+
+Package: libdaxctl-dev
+Section: libdevel
+Architecture: amd64
+Depends: libdaxctl1 (=${binary:Version}),
+         ${misc:Depends}
+Description: Development files for libdaxctl
+ Header files and development library for compiling C programs to link
+ with the libdaxctl library and manage the device DAX subsystem in the
+ Linux kernel.
